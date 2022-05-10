@@ -15,8 +15,8 @@
 //----------------------------------------------------------------
 
 // Default size if no size is give
-define("ODO_DEFAULT_WIDTH",600);
-define("ODO_DEFAULT_HEIGHT",400);
+const ODO_DEFAULT_WIDTH = 600;
+const ODO_DEFAULT_HEIGHT = 400;
 
 //----------------------------------------------------------------
 // You should NOT, I repeat, NOT  change any of the following
@@ -24,18 +24,18 @@ define("ODO_DEFAULT_HEIGHT",400);
 //----------------------------------------------------------------
 
 // Style of odometer
-define("ODO_FULL",1); // Full circle
-define("ODO_HALF",2); // Half circle
+const ODO_FULL = 1; // Full circle
+const ODO_HALF = 2; // Half circle
 
 
 // Types of needles
-define("NEEDLE_STYLE_SIMPLE",0);  // Straight
-define("NEEDLE_STYLE_STRAIGHT",1);  // Straight
-define("NEEDLE_STYLE_ENDARROW",2);  // Arrowhead
-define("NEEDLE_STYLE_SMALL_TRIANGLE",3);  // Triangle small base
-define("NEEDLE_STYLE_MEDIUM_TRIANGLE",4);  // Triangle wide base
-define("NEEDLE_STYLE_LARGE_TRIANGLE",5);  // Triangle wide base
-define("NEEDLE_STYLE_HUGE_TRIANGLE",6);  // Triangle wide base
+const NEEDLE_STYLE_SIMPLE = 0;  // Straight
+const NEEDLE_STYLE_STRAIGHT = 1;  // Straight
+const NEEDLE_STYLE_ENDARROW = 2;  // Arrowhead
+const NEEDLE_STYLE_SMALL_TRIANGLE = 3;  // Triangle small base
+const NEEDLE_STYLE_MEDIUM_TRIANGLE = 4;  // Triangle wide base
+const NEEDLE_STYLE_LARGE_TRIANGLE = 5;  // Triangle wide base
+const NEEDLE_STYLE_HUGE_TRIANGLE = 8;  // Triangle wide base
 
 // Arrow head styles
 // NEEDLE_ARROW_<WIDTH><LENGTH>
@@ -59,7 +59,7 @@ define("NEEDLE_ARROW_LL",9);
 //===================================================
 class OdoGraph extends Graph {
     private $iObj=array();
-    private $iOdoColor = array(210,220,210);
+    private $iOdoColor = array(255,220,210);
     private $iOdoMarginColor = array(140,160,140);
     public $caption;
 
@@ -202,7 +202,7 @@ class OdoGraph extends Graph {
 // Description: The needle in the odometer
 //===================================================
 class OdoNeedle  {
-    private $iFillColor="darkgray";
+    private $iFillColor="white";
     private $iVal=0;
     private $iLength = 0.6; // Fraction of radius
     private $iStyleParameter1 = -1, $iStyleParameter2 = -1;
@@ -217,7 +217,7 @@ class OdoNeedle  {
             4,7, 4,12, 5,20,    // MS, MM, ML
             8,7, 8,14, 8,24 ); // LS, LM, LL
         $this->iWeight = 4;
-        $this->iColor = "navy";
+        $this->iColor = "#444";
         $this->iStyle = NEEDLE_STYLE_ENDARROW;
         $this->iStyleParameter1 = NEEDLE_ARROW_MM;
 
@@ -327,8 +327,8 @@ class OdoNeedle  {
             case NEEDLE_STYLE_LARGE_TRIANGLE: // Triangle medium width base
                 $base_width = isset($base_width)  ? $base_width : 25 ;
             case NEEDLE_STYLE_HUGE_TRIANGLE: // Triangle medium width base
-                $base_width = isset($base_width)  ? $base_width : 50 ;
-                $yadj = $base_width/2;
+                $base_width = isset($base_width)  ? $base_width : 70 ;
+                $yadj = $base_width/1.8;
                 $p = array($xc,$yc-$yadj,$xc+$r,$yc+$base_width/2-$yadj,$xc,$yc+$base_width-$yadj);
                 break;
 
@@ -502,11 +502,11 @@ class Odometer {
     public $xc,$yc;
     public $iStyle;
     public $label;
-    private $iFillColor = "lightgray:1.7", $iColor = "navy";
+    private $iFillColor = "white", $iColor = "white";
     private $iInd, $iIndIdx=0;
     private $iCenterAreaWidth = 0;
     private $iBase = true, $iBaseWidth=0.12;
-    private $iBaseColor1="navy",$iBaseColor2="steelblue",$iBaseColor3="white";
+    private $iBaseColor1="#2F2D2D",$iBaseColor2="#2F2D2D",$iBaseColor3="white";
     private $iMargin=5;
     private $iCaptionMargin=0;
 
@@ -543,7 +543,7 @@ class Odometer {
         $this->iMargin = $aMargin;
     }
 
-    function SetBase($aShowBase,$aWidth=0.1,$aColor1="navy",$aColor2="steelblue",$aColor3="white") {
+    function SetBase($aShowBase,$aWidth=0.1,$aColor1="#444",$aColor2="#444",$aColor3="white") {
         $this->iBase = $aShowBase;
         $this->iBaseColor1 = $aColor1;
         $this->iBaseColor2 = $aColor2;
