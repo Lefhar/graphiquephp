@@ -7,7 +7,7 @@ $graph = new OdoGraph(1050,600);
 
 $graph->title->Set('Objectif chiffre d\'affaire');
 $graph->title->SetFont(FF_FONT2,FS_BOLD);
-$graph->SetMargin(10,10,20,-1);
+$graph->SetMargin(10,10,20,2);
 // Add drop shadow for graph
 $graph->SetShadow(false);
 $graph->SetColor('#FFFFF');
@@ -27,9 +27,9 @@ $odo->AddIndication(0,90,"#D70606");
 $odo->AddIndication(90,95,"#FF6600");
 $odo->AddIndication(95,100,"#34E837");
 
-$odo->SetMargin(0);
+$odo->SetMargin(-1);
 // Set display value for the odometer
-$odo->needle->Set(82);
+$odo->needle->Set(81);
 
 // Set the size of the non-colored base area to 40% of the radius
 $odo->SetCenterAreaWidth(0.55);

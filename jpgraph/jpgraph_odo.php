@@ -42,15 +42,15 @@ const NEEDLE_STYLE_HUGE_TRIANGLE = 8;  // Triangle wide base
 // S = Small
 // M = Medium
 // L = Large
-define("NEEDLE_ARROW_SS",1);
-define("NEEDLE_ARROW_SM",2);
-define("NEEDLE_ARROW_SL",3);
-define("NEEDLE_ARROW_MS",4);
-define("NEEDLE_ARROW_MM",5);
-define("NEEDLE_ARROW_ML",6);
-define("NEEDLE_ARROW_LS",7);
-define("NEEDLE_ARROW_LM",8);
-define("NEEDLE_ARROW_LL",9);
+const NEEDLE_ARROW_SS = 1;
+const NEEDLE_ARROW_SM = 2;
+const NEEDLE_ARROW_SL = 3;
+const NEEDLE_ARROW_MS = 4;
+const NEEDLE_ARROW_MM = 5;
+const NEEDLE_ARROW_ML = 6;
+const NEEDLE_ARROW_LS = 7;
+const NEEDLE_ARROW_LM = 8;
+const NEEDLE_ARROW_LL = 9;
 
 
 //===================================================
@@ -329,7 +329,7 @@ class OdoNeedle  {
             case NEEDLE_STYLE_HUGE_TRIANGLE: // Triangle medium width base
                 $base_width = isset($base_width)  ? $base_width : 38 ;
                 $yadj = $base_width/1.4;
-                $p = array($xc,$yc-$yadj,$xc+$r,$yc+$base_width/2-$yadj,$xc,$yc+$base_width-$yadj);
+                $p = array($xc,$yc-$yadj,$xc+$r,$yc+$base_width/4-$yadj,$xc,$yc+$base_width-$yadj);
                 break;
 
             default:
@@ -376,17 +376,17 @@ class OdoScale {
     private $iMin=0,$iMax=100;
     private $iStartAngle,$iEndAngle;
     private $iMinTick=25,$iLabelInterval=1;
-    private $iTickLength=0.06;  // Fraction of radius
-    private $iColor = "black"; // Tickmark color
+    private $iTickLength=0.07;  // Fraction of radius
+    private $iColor = "#2F2D2D"; // Tickmark color
     private $iTickWeight=1;
     private $iShow=true;
     private $iFormatStr = "%d";
-    private $iLabelPosition=0.8;
+    private $iLabelPosition=0.85;
 
     function __construct($aStartAngle,$aEndAngle) {
         $this->label = new Text();
-        $this->iStartAngle = $aStartAngle * M_PI/180;
-        $this->iEndAngle = $aEndAngle * M_PI/180;
+        $this->iStartAngle = $aStartAngle * M_PI/179.1;
+        $this->iEndAngle = $aEndAngle * M_PI/180.3;
     }
 
     function SetAngle($aStart,$aEnd) {
