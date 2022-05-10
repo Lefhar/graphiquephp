@@ -3,10 +3,11 @@ require_once ('jpgraph/jpgraph.php');
 require_once ('jpgraph/jpgraph_odo.php');
 
 // Create a new odometer graph (width=250, height=200 pixels)
-$graph = new OdoGraph(1050,650);
+$graph = new OdoGraph(1050,600);
 
-$graph->title->Set('Chiffre d\'affaire');
-$graph->SetMargin(30,10,40,40);
+$graph->title->Set('Objectif chiffre d\'affaire');
+$graph->title->SetFont(FF_FONT2,FS_BOLD);
+$graph->SetMargin(10,10,20,-1);
 // Add drop shadow for graph
 $graph->SetShadow(false);
 $graph->SetColor('#FFFFF');
@@ -20,13 +21,13 @@ $odo = new Odometer(ODO_HALF);
 
 //$odo->SetCenterAreaWidth(100);
 $odo->scale->label->SetColor('white');
-//$odo->scale->label->SetFont(FF_FONT2,FF_AHRON,50);
+//$odo->scale->label->SetFont(FF_FONT1,FF_COURIER,2);
 // Add color indications
 $odo->AddIndication(0,90,"#D70606");
 $odo->AddIndication(90,95,"#FF6600");
 $odo->AddIndication(95,100,"#34E837");
 
-
+$odo->SetMargin(0);
 // Set display value for the odometer
 $odo->needle->Set(82);
 
@@ -44,7 +45,7 @@ $odo->needle->SetColor('#2F2D2D');
 //$odo->needle->SetStyle('NEEDLE_STYLE_MEDIUM_TRIANGLE');
 $odo->needle->SetStyle(NEEDLE_STYLE_HUGE_TRIANGLE, NEEDLE_ARROW_LL);
 //$odo->SetFont(FF_ARIAL,FS_BOLD,12);
-$odo->SetSize(400);
+$odo->SetSize(500);
 $odo->needle->SetLength("1.1");
 //$odo->needle->SetLineWeight(2);
 // Add the odometer to the graph
