@@ -327,8 +327,8 @@ class OdoNeedle  {
             case NEEDLE_STYLE_LARGE_TRIANGLE: // Triangle medium width base
                 $base_width = isset($base_width)  ? $base_width : 25 ;
             case NEEDLE_STYLE_HUGE_TRIANGLE: // Triangle medium width base
-                $base_width = isset($base_width)  ? $base_width : 70 ;
-                $yadj = $base_width/1.8;
+                $base_width = isset($base_width)  ? $base_width : 34 ;
+                $yadj = $base_width/1;
                 $p = array($xc,$yc-$yadj,$xc+$r,$yc+$base_width/2-$yadj,$xc,$yc+$base_width-$yadj);
                 break;
 
