@@ -7,7 +7,7 @@ require_once ('jpgraph/jpgraph_pie3d.php');
 $data = array(40,60,21,33);
 
 // Create the Pie Graph.
-$graph = new PieGraph(350,250);
+$graph = new PieGraph(650,450);
 
 $theme_class= new VividTheme;
 $graph->SetTheme($theme_class);
